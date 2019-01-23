@@ -150,7 +150,7 @@ def quicksort_core(x):
             assignments += 1
             high -= 1
     # recurse.
-    below = quicksort(x[1:low])
-    above = quicksort(x[low:])
+    below = quicksort_core(x[1:low])
+    above = quicksort_core(x[low:])
     return (below[0] + [x[pivot]] + above[0], below[1] + above[1] + assignments, below[2] + above[2] + conditionals)
 
