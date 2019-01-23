@@ -28,7 +28,7 @@ def bubblesort_clean(x):
                 x[i], x[i+1] = x[i+1], x[i]
     # then check:
     for i in range(len(x)-1):
-        assert x[i] < x[i+1]
+        assert x[i] <= x[i+1]
     return x
 
 def quicksort_clean(x):
@@ -96,7 +96,7 @@ def bubblesort_core(x):
                 x[i], x[i+1] = x[i+1], x[i]
     # then check. Not counting these.
     for i in range(len(x)-1):
-        assert x[i] < x[i+1]
+        assert x[i] <= x[i+1]
     return x, conditionals, assignments
 
 def quicksort(x):
