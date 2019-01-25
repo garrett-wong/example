@@ -107,6 +107,7 @@ def quicksort(x):
     sort x by quicksort: pick a pivot element, divide the list into halves
     larger and smaller than the pivot, sort those, then recompose.
     """
+
     return quicksort_core(x)[0]
 
 def quicksort_core(x):
@@ -150,7 +151,31 @@ def quicksort_core(x):
             assignments += 1
             high -= 1
     # recurse.
-    below = quicksort_core(x[1:low])
-    above = quicksort_core(x[low:])
+    # What I'm doing here is a bit of a kludge. This was written with
+    # vanilla python lists in mind, but it doesn't work for numpy
+    # arrays. Splicing a vanilla list creates a (deep) copy of that
+    # list, while splicing a numpy array creates a new variable name
+    # that points to the same object in memory. i.e.:
+    # 
+    # >>> A = [1, 2, 3]
+    # >>> B = A[1:]
+    # >>> B[1] = 5
+    # >>> A
+    # [1, 2, 3]
+    # # but
+    # >>> a = np.array([1, 2, 3])
+    # >>> b = a[1:]
+    # >>> b[1] = 5
+    # >>> a
+    # array([1, 2, 5])
+    # 
+    # To keep things simple, we just cast as a list and keep passing
+    # things around. If I'd thought carefully about this inconvenience
+    # between cases, I'd probably have started with a deep copy
+    # approach and passed indices instead of sublists.
+    lower = list(x[1:low])
+    higher = list(x[low:])
+    below = quicksort_core(lower)
+    above = quicksort_core(higher)
     return (below[0] + [x[pivot]] + above[0], below[1] + above[1] + assignments, below[2] + above[2] + conditionals)
 
