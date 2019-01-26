@@ -1,0 +1,22 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[total={11in,8.5in},portrait,left=1in,right=1in,top=1.5in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{textgreek}
+\usepackage{graphicx}
+\begin{document}
+\title{BMI 203 HW 1}
+\author{Garrett Wong}
+\date{25 January 2019}
+\maketitle
+
+\section*{Runtime of quicksort and bubble sort}
+I ran 100 trials of quicksort and bubble sort for lists of $N$ elements randomly chosen with replacement from the range $[0, 1, \ldots, N)$ for $N = 100, 200, \ldots, 1000$. Plotted are the summed count of assignments and conditionals for each trial, as well as the linear fit for formulae $\texttt{operations} \sim N^2$ for bubble sort and $\texttt{operations} \sim N\log(N)$ for quicksort. These fits correspond to the expected big-O behavior of the two algorithms. The $\beta$ estimates for the $N$ terms for those two fits are 0.998 and 4.493, respectively.
+\vspace{4em}
+
+\includegraphics[width=\textwidth]{runtime.pdf}
+
+\end{document}
+
