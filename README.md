@@ -1,38 +1,14 @@
-# example
-
+# Garrett Wong HW1 (fka example)
 [![Build
 Status](https://travis-ci.org/garrett-wong/example.svg?branch=master)](https://travis-ci.com/garrett-wong/example)
+Really not sure how to make this not say build unknown.
 
-Example python project with testing.
+example/algs.py has implementations of quicksort and bubblesort,
+including implementations that count assignments and conditionals.
 
-## usage
+example/runtime.py writes runtimes.txt, a log of runtimes for
+each trial, and runtimes.R plots runtimes along with lines of fit for
+expected big-O trends.
 
-To use the package, first make a new conda environment and activate it
-
-```
-conda create -n exampleenv python=3
-source activate exampleenv
-```
-
-then run
-
-```
-conda install --yes --file requirements.txt
-```
-
-to install all the dependencies in `requirements.txt`. Then the package's
-main function (located in `example/__main__.py`) can be run as follows
-
-```
-python -m example
-```
-
-## testing
-
-Testing is as simple as running
-
-```
-python -m pytest
-```
-
-from the root directory of this project.
+runtimes.tex is just the latex source for runtimes.pdf, which is the
+assignment PDF that I emailed.
